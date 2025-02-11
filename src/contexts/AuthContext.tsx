@@ -1,5 +1,4 @@
 import { ReactNode, createContext, useState, useEffect } from "react";
-
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../services/firebaseConnection";
 
@@ -27,7 +26,6 @@ function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
-        //TEM USER LOGADO.
         setUser({
           uid: user.uid,
           name: user?.displayName,
@@ -36,7 +34,6 @@ function AuthProvider({ children }: AuthProviderProps) {
 
         setLoadingAuth(false);
       } else {
-        //NÃO TEM USER LOGADO.
         setUser(null);
         setLoadingAuth(false);
       }
