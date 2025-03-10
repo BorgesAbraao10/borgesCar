@@ -72,7 +72,7 @@ export function New() {
 
     uploadBytes(uploadRef, image).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((downloadUrl) => {
-        console.log(downloadUrl);
+        console.log("URL DE ACESSO A FOTO", downloadUrl);
       });
     });
   }
